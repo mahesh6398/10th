@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>git details</h1>
+    <div id="stock"></div>
+    <script>
+        if("serviceWorker" in navigator){
+            navigator.serviceWorker.register("sw.js").then((e)=>{
+                
+                    console.log("service worker registered");
+                
+            })
+        }
+        else{
+            console.log("service worker not supported")
+        }
+
+        fetch("data.json")
+        .then((e)=>{
+            return e.json();
+        })
+        .then((stock)=>{
+            var table = "<table>";
+                 table += "<tr><th>Company</th><th>price</th><th>symbol</th></tr>";
+
+                 for (item of stock){
+                    table += "<tr><th>"+item.company+"</th><th>"+item.price_2007+"</th><th>"+item.symbol+"</th></tr>";
+                 }
+
+                 table +="</table>";
+                document.getElementById("stock").innerHTML=table;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+self.addEventListener("install",(e)=>{
+caches.open("stock").then((cache)=>{
+    cache.add('/');
+    cache.add('manifest.json');
+    cache.add("/index.html");
+    cache.add('/data.json')
+})
+    console.log("installed");
+})
+self.addEventListener("activate",(e)=>{
+    console.log("activated");
+})
+self.addEventListener("fetch",(e)=>{
+    e.respondWith(
+        caches.match(e.request)
+        .then((res)=>{
+            return res || fetch(e.request)
+        })
+        .catch((e)=>{
+            console.log(e);
+        })
+    )
+})

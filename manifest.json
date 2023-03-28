@@ -1,0 +1,44 @@
+{
+    "name":"myapp",
+    "start_url":"/",
+    "short_name":"myapp",
+    "description":"this is my app",
+    "id":"/",
+    "display":"standalone",
+    "orientation":"portrait-primary",
+    "icons":[
+        {
+            "src":"assets/image.png",
+            "sizes":"512x512",
+            "type":"image/png",
+            "purpose":"maskable"
+        },  {
+            "src":"assets/image.png",
+            "sizes":"412x412",
+            "type":"image/png",
+            "purpose":"any"
+        },
+        {
+            "src":"assets/Logo.png",
+            "size":"144x144",
+            "type":"image/png",
+            "purpose":"any"
+        }
+    ],
+    "theme_color":"#2cd32e",
+    "background_color":"#ed23e1",
+    "screenshots":[
+        {
+            "src":"assets/image.png",
+            "sizes":"512x512",
+            "type":"image/png",
+            "form_factor":"wide"
+        },
+        {
+            "src":"assets/img1.png",
+            "sizes":"512x512",
+            "type":"image/png",
+            "form_factor":"narrow"
+        }
+    ]
+}
